@@ -1,0 +1,332 @@
+# =========================================================
+# PYTHON CODE-TRACING WORKSHEET #3 (NESTED LOOPS & ASCII ART)
+# Trace the code and draw/write out the output in the console.
+# Coding Reference and Glossary of Terms at the Bottom again!
+# =========================================================
+
+
+# 1. What pattern is printed? (Draw it)
+# (Focus: Simple nested loop with repeated characters)
+for row in range(3):
+    for col in range(4):
+        print('*', end='')
+    print()
+
+
+# 2. What pattern is printed? (Draw it)
+# (Focus: Nested loop with variable repetition)
+for i in range(1, 4):
+    for j in range(i):
+        print('#', end='')
+    print()
+
+
+# 3. What pattern is printed? (Draw it)
+# (Focus: Nested loop with space padding)
+for row in range(3):
+    for col in range(3):
+        if col < row:
+            print(' ', end='')
+        else:
+            print('*', end='')
+    print()
+
+
+# 4. What pattern is printed? (Draw it)
+# (Focus: Nested loop with conditional for ___________)
+for row in range(4):
+    for col in range(4):
+        if (row + col) % 2 == 0:
+            print('X', end='')
+        else:
+            print('O', end='')
+    print()
+
+
+# 5. What pattern is printed? (Draw it)
+# (Focus: Creating a ___ with nested loops and conditionals)
+for row in range(4):
+    for col in range(5):
+        if row == 0 or row == 3 or col == 0 or col == 4:
+            print('+', end='')
+        else:
+            print(' ', end='')
+    print()
+
+
+# 6. What pattern is printed? (Draw it)
+# (Focus: Nested loops creating a ________ with spaces)
+for row in range(4):
+    for col in range(4):
+        if col < 4 - row - 1:
+            print(' ', end='')
+        else:
+            print('*', end='')
+    print()
+
+
+# 7. What pattern is printed? (Draw it)
+# (Focus: Nested loops with multiplication pattern)
+for row in range(1, 4):
+    for col in range(1, 4):
+        print(row * col, end=' ')
+    print()
+
+
+# 8. What pattern is printed? (Draw it)
+# (Focus: Creating _______ with conditional)
+for row in range(5):
+    for col in range(5):
+        if row == col:
+            print('/', end='')
+        else:
+            print(' ', end='')
+    print()
+
+
+# 9. What pattern is printed? (Draw it)
+# (Focus: Diamond shape with nested conditionals)
+for row in range(5):
+    for col in range(5):
+        distance = abs(row - 2) + abs(col - 2)
+        if distance <= 2:
+            print('*', end='')
+        else:
+            print(' ', end='')
+    print()
+
+
+# 10. What pattern is printed? (Draw it)
+# (Focus: _______ pattern with modulo)
+for row in range(5):
+    for col in range(6):
+        if col % 2 == 0:
+            print('|', end='')
+        else:
+            print(' ', end='')
+    print()
+
+
+# 11. What pattern is printed? (Draw it)
+# (Focus: _______ with center alignment)
+for row in range(4):
+    for col in range(7):
+        if col >= 3 - row and col <= 3 + row:
+            print('*', end='')
+        else:
+            print(' ', end='')
+    print()
+
+
+# 12. What pattern is printed? (Draw it)
+# (Focus: Nested loops with character replacement based on condition)
+for row in range(3):
+    for col in range(4):
+        if row == col:
+            print('X', end='')
+        elif row > col:
+            print('V', end='')
+        else:
+            print('^', end='')
+    print()
+
+
+# 13. What pattern is printed? (Draw it)
+# (Focus: Creating a _____ with inner content)
+for row in range(5):
+    for col in range(7):
+        if row == 0 or row == 4 or col == 0 or col == 6:
+            print('#', end='')
+        elif row == 2 and col == 3:
+            print('O', end='')
+        else:
+            print(' ', end='')
+    print()
+
+
+# 14. What pattern is printed? (Draw it)
+for row in range(4):
+    for col in range(5):
+        if row % 2 == 0:
+            print('=', end='')
+        else:
+            print('-', end='')
+    print()
+
+
+# 15. What pattern is printed? (Draw it)
+# (Focus: Complex nested loop creating a ______)
+for row in range(7):
+    for col in range(7):
+        distance = abs(row - 3) + abs(col - 3)
+        if distance == 0:
+            print('X', end='')
+        elif distance == 1:
+            print('O', end='')
+        elif distance == 2:
+            print('*', end='')
+        else:
+            print(' ', end='')
+    print()
+
+
+# =========================================================
+# GLOSSARY: KEY CONCEPTS FOR NESTED LOOPS & CONDITIONALS
+# =========================================================
+
+"""
+═══════════════════════════════════════════════════════════════════════════════
+1. The "for ... in" Loop Variable - Where Does It Come From?
+═══════════════════════════════════════════════════════════════════════════════
+
+SYNTAX:
+    for variable in range(5):
+        print(variable)
+
+WHAT IS "variable"?
+    - The variable (like "row", "col", "i") is created BY the for loop
+    - It gets a NEW value each time the loop runs
+    - With range(), it starts at 0 and counts UP by 1 each iteration
+    - The variable automatically updates - you don't set it yourself
+
+HOW IT WORKS STEP BY STEP:
+    for i in range(3):          # Loop will run 3 times (0, 1, 2)
+        print(i)
+    
+    Iteration 1: i = 0 → prints 0
+    Iteration 2: i = 1 → prints 1
+    Iteration 3: i = 2 → prints 2
+    Loop ends
+
+THE COUNTER RESETS FOR NESTED LOOPS:
+    for row in range(2):                # row: 0, then 1
+        for col in range(3):            # col resets: 0, 1, 2 each time
+            print(f"({row},{col})")
+    
+    Output:
+    (0,0) (0,1) (0,2)
+    (1,0) (1,1) (1,2)
+
+KEY POINT: The inner loop's variable (col) RESETS to 0 after each outer loop iteration!
+
+═══════════════════════════════════════════════════════════════════════════════
+2. abs() - Absolute Value Function
+═══════════════════════════════════════════════════════════════════════════════
+
+SYNTAX:
+    abs(number)
+
+PARAMETERS:
+    number: Any number (positive, negative, or zero)
+
+WHAT IT DOES:
+    Returns the distance from zero (always positive or zero, never negative).
+    Removes the negative sign if there is one.
+
+EXAMPLES:
+    abs(5)      → 5
+    abs(-5)     → 5
+    abs(-23)    → 23
+    abs(0)      → 0
+    abs(3 - 8)  → abs(-5) → 5
+
+WHY USE IT:
+    Great for finding distances! If you want to know how far two positions are
+    from each other, abs() gives you the distance without worrying about direction.
+
+EXAMPLE IN CODE:
+    x = 7
+    y = 2
+    distance = abs(x - y)   # distance = abs(5) = 5
+
+═══════════════════════════════════════════════════════════════════════════════
+3. Conditionals with Multiple Comparisons - AND, OR, Multiple Conditions
+═══════════════════════════════════════════════════════════════════════════════
+
+SINGLE CONDITION:
+    if x == 5:
+        print("x is 5")
+
+MULTIPLE CONDITIONS WITH "or" - At LEAST one must be true:
+    SYNTAX:
+        if condition1 or condition2:
+    
+    MEANING: If condition1 is TRUE OR condition2 is TRUE (or both), run the code.
+    
+    EXAMPLE:
+        if row == 0 or row == 4:
+            print('Border')
+        
+        This prints "Border" if:
+        - row equals 0, OR
+        - row equals 4
+        - (or both, though that can't happen here)
+
+MULTIPLE CONDITIONS WITH "and" - ALL must be true:
+    SYNTAX:
+        if condition1 and condition2:
+    
+    MEANING: If BOTH condition1 AND condition2 are TRUE, run the code.
+    
+    EXAMPLE:
+        if row == 1 and col == 2:
+            print('Found it')
+        
+        This prints "Found it" ONLY if:
+        - row equals 1, AND
+        - col equals 2 (both must be true)
+
+COMBINING MORE THAN TWO CONDITIONS:
+    if row == 0 or row == 3 or col == 0 or col == 5:
+        print('Border')
+    
+    This prints "Border" if ANY of these are true:
+    - row is 0, OR row is 3, OR col is 0, OR col is 5
+
+EVALUATING THE EXPRESSION:
+    Step 1: Evaluate each comparison separately
+    Step 2: Combine with OR/AND
+    Step 3: Final result is TRUE or FALSE
+
+EXAMPLE WALKTHROUGH:
+    row = 2, col = 4
+    
+    if row == 0 or row == 4 or col == 0 or col == 4:
+    
+    Check each comparison:
+        row == 0?   →   2 == 0?   →   FALSE
+        row == 4?   →   2 == 4?   →   FALSE
+        col == 0?   →   4 == 0?   →   FALSE
+        col == 4?   →   4 == 4?   →   TRUE ✓
+    
+    Result with OR: FALSE or FALSE or FALSE or TRUE = TRUE
+    → Code RUNS because at least one condition is TRUE
+
+ANOTHER EXAMPLE:
+    row = 1, col = 1
+    
+    if row == 0 and col == 0:
+        print('Top-left corner')
+    
+    Check each comparison:
+        row == 0?   →   1 == 0?   →   FALSE
+        col == 0?   →   1 == 0?   →   FALSE
+    
+    Result with AND: FALSE and FALSE = FALSE
+    → Code does NOT run because NOT ALL conditions are TRUE
+
+IF/ELIF/ELSE CHAINS:
+    if distance == 0:
+        print('Center')
+    elif distance == 1:
+        print('Very close')
+    elif distance == 2:
+        print('Close')
+    else:
+        print('Far away')
+    
+    The conditions are checked in order. As soon as ONE is TRUE, that block runs
+    and the rest are skipped.
+
+═══════════════════════════════════════════════════════════════════════════════
+"""
