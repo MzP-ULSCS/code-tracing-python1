@@ -1,0 +1,130 @@
+# =========================================================
+# PYTHON CODE-TRACING WORKSHEET (CHAPTERS 0-7 CONCEPTS)
+# Determine the output in the console for each snippet.
+# =========================================================
+
+
+# 1. What is the final value printed in the console?
+result = 10 + 5 * 2 - 4
+print(result)
+
+
+# 2. What is the final output in the console (all lines)?
+x = 17
+y = 5
+print(x // y)
+print(x % y)
+
+
+# 3. What is the final value printed in the console?
+spam = 5
+spam = spam + 2
+spam = spam * 3
+print(spam)
+
+
+# 4. What is the final value printed in the console?
+word1 = 'Python'
+word2 = 'Game'
+phrase = word1 + ' ' + word2
+length = len(phrase)
+print(length)
+
+
+# 5. What is the final value printed in the console?
+value = '10'
+count = 5
+total = int(value) + count
+output = 'Total is: ' + str(total)
+print(output)
+
+
+# 6. What is the final output printed in the console?
+secret_number = 15
+guess = 10
+if guess == secret_number:
+    print('Correct')
+else:
+    print('Incorrect')
+
+
+# 7. What is the final output printed in the console (include all lines and spacing)?
+name = 'Zoe'
+score = 95
+message = f"""
+Player: {name}
+Score: {score}
+"""
+print(message.strip())
+
+
+# 8. What is the final output in the console (all lines)?
+for i in range(1, 4):
+    print(i * 2)
+
+
+# 9. What is the final value printed in the console?
+def calculate(a, b):
+    return (a * 2) - b
+
+x = 10
+y = 3
+result = calculate(x, y)
+print(result)
+
+
+# 10. What is the final output printed in the console?
+temp = 15
+is_sunny = True
+if temp > 20 and is_sunny:
+    print('Beach day!')
+elif temp > 10 or is_sunny:
+    print('Outside activity')
+else:
+    print('Stay in')
+
+
+# 11. What is the final value printed in the console?
+total = 0
+for i in range(5):
+    if i % 2 == 0:
+        total = total + 1
+print(total)
+
+
+# 12. What is the final output in the console (all lines)?
+count = 0
+while count < 5:
+    count = count + 1
+    if count == 3:
+        continue
+    print(count)
+
+
+# 13. What is the final value printed in the console?
+def check_status(age):
+    if age >= 18:
+        return 'Adult'
+    return 'Minor'
+
+status = check_status(17)
+print(status)
+
+
+# 14. What is the final value printed in the console?
+my_list = ['A', 'B', 'C', 'D', 'E']
+item1 = my_list[1]
+my_list.append('F')
+item_count = len(my_list)
+print(item1 + str(item_count))
+
+
+# 15. What is the final value printed in the console?
+game_over = False
+score = 0
+if not game_over and score == 0:
+    score = score + 10
+    game_over = True
+elif game_over:
+    score = score + 5
+print(score)
