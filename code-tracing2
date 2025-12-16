@@ -1,0 +1,326 @@
+# =========================================================
+# PYTHON CODE-TRACING WORKSHEET #2 (LOOPS & LIST SLICING)
+# Determine the output in the console for each snippet.
+# See the bottom of the code for a reference glossary
+# =========================================================
+
+
+# 1. What is the final output in the console (all lines)?
+# (Focus: Loop with specific start, stop, and step)
+for i in range(2, 10, 3):
+    print(i * 10)
+
+
+# 2. What is the final output in the console (all lines)?
+# (Focus: While loop with a decrementing counter)
+j = 12
+while j > 5:
+    print(j)
+    j = j - 3
+
+
+# 3. What is the final output in the console (all lines)?
+# (Focus: Simple nested loop)
+count = 0
+for x in range(2):
+    for y in range(2):
+        count = count + 1
+print(count)
+
+
+# 4. What is the final output in the console (all lines)?
+# (Focus: Loop control flow - break)
+total = 0
+for num in range(1, 6):
+    if num == 4:
+        break
+    total = total + num
+print(total)
+
+
+# 5. What is the final output in the console?
+# (Focus: Looping over a string using indexing)
+word = 'hello'
+result = ''
+for i in range(len(word)):
+    if i % 2 == 0:
+        result = result + word[i]
+print(result)
+
+
+# 6. What is the final value printed in the console?
+# (Focus: Basic list slicing [start:end])
+data = [10, 20, 30, 40, 50, 60]
+slice_1 = data[1:4]
+print(len(slice_1))
+
+
+# 7. What is the final value printed in the console?
+# (Focus: List slicing with negative end index)
+colors = ['red', 'green', 'blue', 'yellow', 'purple']
+slice_2 = colors[1:-1]
+print(slice_2)
+
+
+# 8. What is the final value printed in the console?
+# (Focus: List slicing with no start/end)
+scores = [5, 10, 15, 20, 25]
+slice_3 = scores[3:]
+slice_4 = scores[:2]
+final_list = slice_3 + slice_4
+print(final_list)
+
+
+# 9. What is the final value printed in the console?
+# (Focus: List slicing with a step)
+letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+slice_5 = letters[::2]
+print(slice_5)
+
+
+# 10. What is the final value printed in the console?
+# (Focus: List slicing to reverse a list)
+items = ['a', 'b', 'c']
+items_reversed = items[::-1]
+print(items_reversed)
+
+
+# 11. What is the final value printed in the console (all lines)?
+# (Focus: Loop modifying list via indexing)
+numbers = [1, 2, 3, 4]
+for i in range(len(numbers)):
+    numbers[i] = numbers[i] * 2 + 1
+print(numbers)
+
+
+# 12. What is the final value printed in the console?
+# (Focus: List mutation inside a loop)
+characters = ['H', 'E', 'L', 'L', 'O']
+new_word = ''
+for i in range(3):
+    new_word = new_word + characters.pop(0) # pop(0) removes and returns the first item
+print(new_word)
+
+
+# 13. What is the final value printed in the console?
+# (Focus: Loop creating a new list from an old list)
+data_in = [2, 3, 4]
+data_out = []
+for val in data_in:
+    data_out.append(val ** 2)
+print(data_out)
+
+
+# 14. What is the final output in the console?
+# (Focus: Looping over a slice)
+players = ['Jim', 'Sue', 'Amy', 'Tom', 'Joe']
+winner_slice = players[1:4]
+count = 0
+for name in winner_slice:
+    count = count + 1
+print(count)
+
+
+# 15. What is the final value printed in the console?
+# (Focus: While loop using len() and list removal)
+# NOTE: Assume a user inputs 'remove', then 'stop'.
+commands = ['remove', 'keep', 'remove', 'stop']
+current_command = 0
+my_inventory = [10, 20, 30, 40]
+while commands[current_command] != 'stop':
+    if commands[current_command] == 'remove':
+        my_inventory.pop(0)
+    current_command = current_command + 1
+print(my_inventory)
+
+
+# =========================================================
+# BUILT-IN FUNCTIONS & METHODS GLOSSARY
+# =========================================================
+
+"""
+This section explains the built-in Python functions and methods used in this worksheet.
+
+═══════════════════════════════════════════════════════════════════════════════
+1. range() - Creates a sequence of numbers for looping
+═══════════════════════════════════════════════════════════════════════════════
+
+SYNTAX:
+    range(start, stop)           # Two parameters
+    range(start, stop, step)     # Three parameters
+
+PARAMETERS:
+    start: The number to BEGIN at (included in the sequence)
+    stop:  The number to STOP before (NOT included in the sequence)
+    step:  How much to INCREASE by each time (the "step" between numbers)
+           - If not provided, step defaults to 1
+           - Positive step counts UP: range(0, 5, 2) → 0, 2, 4
+           - Negative step counts DOWN: range(10, 5, -1) → 10, 9, 8, 7, 6
+
+EXAMPLES:
+    range(5)           → 0, 1, 2, 3, 4
+    range(2, 7)        → 2, 3, 4, 5, 6
+    range(0, 10, 2)    → 0, 2, 4, 6, 8
+    range(10, 0, -2)   → 10, 8, 6, 4, 2
+
+═══════════════════════════════════════════════════════════════════════════════
+2. break - Stops a loop immediately
+═══════════════════════════════════════════════════════════════════════════════
+
+WHAT IT DOES:
+    Exits the current loop immediately, skipping any remaining code in that loop.
+    Does NOT execute the code after the loop ends.
+
+WHEN TO USE:
+    When you want to stop looping based on a condition.
+
+EXAMPLE:
+    for i in range(10):
+        if i == 5:
+            break
+        print(i)
+    
+    Output: 0, 1, 2, 3, 4 (stops at 5, never prints 5)
+
+═══════════════════════════════════════════════════════════════════════════════
+3. % (Modulo operator) - Calculates the REMAINDER after division
+═══════════════════════════════════════════════════════════════════════════════
+
+SYNTAX:
+    number % divisor
+
+WHAT IT DOES:
+    Divides number by divisor and returns the REMAINDER (not the result).
+
+EXAMPLES:
+    10 % 3 = 1      (10 ÷ 3 = 3 remainder 1)
+    7 % 2 = 1       (7 ÷ 2 = 3 remainder 1)
+    8 % 2 = 0       (8 ÷ 2 = 4 remainder 0)
+    15 % 4 = 3      (15 ÷ 4 = 3 remainder 3)
+
+COMMON USE:
+    Checking if a number is even or odd:
+    - if num % 2 == 0: (even)
+    - if num % 2 == 1: (odd)
+
+═══════════════════════════════════════════════════════════════════════════════
+4. List/String Slicing [start:stop:step] - Extracts a portion of a list or string
+═══════════════════════════════════════════════════════════════════════════════
+
+SYNTAX:
+    sequence[start:stop]        # Extract from start to stop-1
+    sequence[start:stop:step]   # With a step
+
+PARAMETERS:
+    start: Index to BEGIN at (included)
+    stop:  Index to STOP before (NOT included)
+    step:  Jump this many positions between each item (optional, default is 1)
+
+EXAMPLES:
+    word = 'HELLO'
+    word[0:3]   → 'HEL'        (indices 0, 1, 2)
+    word[2:4]   → 'LL'         (indices 2, 3)
+    word[::2]   → 'HLO'        (every 2nd character)
+    
+    numbers = [10, 20, 30, 40, 50]
+    numbers[1:4]    → [20, 30, 40]
+    numbers[2:]     → [30, 40, 50]
+    numbers[:3]     → [10, 20, 30]
+
+═══════════════════════════════════════════════════════════════════════════════
+5. Negative Indexing - Counting from the END of a sequence
+═══════════════════════════════════════════════════════════════════════════════
+
+WHAT IT DOES:
+    -1 refers to the LAST item
+    -2 refers to the SECOND-TO-LAST item
+    and so on...
+
+EXAMPLES:
+    word = 'HELLO'
+    word[-1]    → 'O'        (last character)
+    word[-2]    → 'L'        (second to last)
+    word[-5]    → 'H'        (first character)
+    
+    colors = ['red', 'green', 'blue', 'yellow']
+    colors[-1]  → 'yellow'
+    colors[-2]  → 'blue'
+
+═══════════════════════════════════════════════════════════════════════════════
+6. Slicing with Blanks [left_blank:right_blank] - Taking from start or to end
+═══════════════════════════════════════════════════════════════════════════════
+
+SYNTAX:
+    sequence[:stop]     # From the BEGINNING up to (but not including) stop
+    sequence[start:]    # From start to the END
+
+EXAMPLES:
+    word = 'PYTHON'
+    word[:3]    → 'PYT'        (from beginning to index 3)
+    word[2:]    → 'THON'       (from index 2 to end)
+    word[:]     → 'PYTHON'     (entire sequence - copy)
+    
+    numbers = [10, 20, 30, 40, 50]
+    numbers[:2]     → [10, 20]
+    numbers[3:]     → [40, 50]
+    numbers[::-1]   → [50, 40, 30, 20, 10]  (reversed!)
+
+═══════════════════════════════════════════════════════════════════════════════
+7. .append() - Adds an item to the END of a list
+═══════════════════════════════════════════════════════════════════════════════
+
+SYNTAX:
+    list.append(item)
+
+PARAMETERS:
+    item: The value to add to the end of the list
+
+WHAT IT DOES:
+    Adds one item to the END of the list. Modifies the original list.
+
+EXAMPLES:
+    my_list = [1, 2, 3]
+    my_list.append(4)
+    print(my_list)          → [1, 2, 3, 4]
+    
+    words = ['hello', 'world']
+    words.append('python')
+    print(words)            → ['hello', 'world', 'python']
+
+NOTE: .append() returns None - it doesn't return the new list!
+
+═══════════════════════════════════════════════════════════════════════════════
+8. .pop() - Removes and RETURNS an item from a list
+═══════════════════════════════════════════════════════════════════════════════
+
+SYNTAX:
+    list.pop()          # Removes and returns the LAST item
+    list.pop(index)     # Removes and returns the item at the given index
+
+PARAMETERS:
+    index: (Optional) The position to remove from
+           - If NOT provided: removes the last item (index -1)
+           - If provided: removes the item at that index
+
+WHAT IT DOES:
+    1. Removes an item from the list
+    2. Returns that item so you can use it
+
+EXAMPLES:
+    fruits = ['apple', 'banana', 'cherry']
+    last = fruits.pop()         → Returns 'cherry'
+    print(fruits)               → ['apple', 'banana']
+    
+    colors = ['red', 'green', 'blue', 'yellow']
+    first = colors.pop(0)       → Returns 'red'
+    print(colors)               → ['green', 'blue', 'yellow']
+    
+    numbers = [10, 20, 30, 40]
+    middle = numbers.pop(2)     → Returns 30
+    print(numbers)              → [10, 20, 40]
+
+NOTE: If the list is empty, .pop() raises an error. Always check that the
+      list has items before using .pop()!
+
+═══════════════════════════════════════════════════════════════════════════════
+"""
